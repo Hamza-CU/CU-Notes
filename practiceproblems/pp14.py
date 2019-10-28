@@ -1,33 +1,36 @@
-#Problem 5 (Tracking Numbers - **)
-
 totSum = 0
-totNumCount = 0
-posNumCount = 0
-negNumCount = 0
+totInputs = 0
 average = 0
-largest = 0
-smallest = 0
-
+totPosNums = 0
+totNegNums = 0
+highestNum = 0
+lowestNum = 0
 i = 0
 
-f = open('numbertest1.txt', 'r')
-
-number = int(f.readline().strip())
-
-while number != '':
-
-    print(number)
-    number = int(f.readline().strip())
-    int(number)
-    totSum = totSum + number
-    totNumCount = totNumCount + 1
-    average = (totSum/totNumCount)
+while i == 0:
+    number = input("Enter a number: ")
+    if number == "q":
+        break
+    number = int(number)
+    totSum = number + totSum
+    totInputs = totInputs + 1
+    average = (totSum / totInputs)
     if number > 0:
-        posNumCount += 1
+        totPosNums = totPosNums + 1
     elif number < 0:
-        negNumCount += 1
+        totNegNums = totNegNums + 1
+    else:
+        totNegNums = totNegNums + 0
+        totPosNums = totPosNums + 0
 
-print("Positive Numbers:", posNumCount)
-print("Negative Numbers:", negNumCount)
-print("Largest Number:", )
-print("Smallest Number:", )
+    if number > highestNum:
+        highestNum = number
+    if number < lowestNum:
+        lowestNum = number
+
+print(totSum)
+print(totNegNums)
+print(totPosNums)
+print(average)
+print(highestNum)
+print(lowestNum)
