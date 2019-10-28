@@ -7,9 +7,13 @@ highestNum = 0
 lowestNum = 0
 i = 0
 
+file = input("Enter a file name: ")
+f = open(file, "r")
+
 while i == 0:
-    number = input("Enter a number: ")
-    if number == "q":
+    number = f.readline().strip()
+    if number == "":
+        f.close()
         break
     number = int(number)
     totSum = number + totSum
