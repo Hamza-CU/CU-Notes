@@ -1,35 +1,30 @@
+file = input("Enter a file name: ")
+f = open(file, "r")
+
 totalSum = 0
 numOfGrades = 0
 classAverage = 0
 passes = 0
 fails = 0
 highestMark = 0
-lowestMark = 0
+lowestMark = 100
 
-file = input("Enter a file name: ")
-f = open(file, "r")
+nameF = f.readline().strip()
 
-i = 0
-while i == 0:
-    nameF = f.readline().strip()
-
-    if nameF == " ":
-        f.close()
-        break
-
+while nameF != "":
     nameL = f.readline().strip()
     studentNumber = f.readline().strip()
 
-    assignmentGrade = int(f.readline().strip())
-    midtermGrade = int(f.readline().strip())
-    examGrade = int(f.readline().strip())
+    assignmentGrade = int(f.readline().strip()) * 0.25
+    midtermGrade = int(f.readline().strip()) * 0.25
+    examGrade = int(f.readline().strip()) * 0.5
 
-    finalGrade = (assignmentGrade/4) + (midtermGrade/4) + (examGrade/2)
+    finalGrade = assignmentGrade + midtermGrade + examGrade
 
     totalSum += finalGrade
     numOfGrades += 1
 
-    if finalGrade >= 50 and examGrade >= 50:
+    if finalGrade >= 50 and examGrade >= 25:
         passes += 1
     else:
         fails += 1
@@ -40,6 +35,8 @@ while i == 0:
     if finalGrade < lowestMark:
         lowestMark = finalGrade
         dumbestStudent = nameF + nameL
+
+    nameF = f.readline().strip()
 
 average = (totalSum / numOfGrades)
 
