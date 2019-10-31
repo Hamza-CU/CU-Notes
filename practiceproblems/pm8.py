@@ -1,7 +1,8 @@
 filename =  input("Enter filename: ")
-f = open(filename, "r")
 
 def getAverageGrade(filename):
+    f = open(filename, "r")
+
     totSum = 0
     totNums = 0
     studentID = f.readline().strip()
@@ -16,16 +17,18 @@ def getAverageGrade(filename):
     return average
 
 def getBestStudent(filename):
+    f = open(filename, "r")
+
     highestMark = 0
-    bestStudent = ""
-    id = ""
+    #bestStudent = ""
+    sid = ""
     studentID = f.readline().strip()
-    studentGrade = f.readline().strip()
     while studentID != "":
+        studentGrade = int(f.readline().strip())
+        #print(studentID)
         if studentGrade > highestMark:
-            id = studentID
+            sid = studentID
         studentID = f.readline().strip()
-        studentGrade = f.readline().strip()
-    return bestStudent.replace(bestStudent, id)
+    return sid
 
 print("the average is", getAverageGrade(filename), "%. The best student is", getBestStudent(filename))
