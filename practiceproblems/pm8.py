@@ -17,15 +17,15 @@ def getAverageGrade(filename):
 
 def getBestStudent(filename):
     highestMark = 0
+    bestStudent = ""
+    id = ""
     studentID = f.readline().strip()
     studentGrade = f.readline().strip()
-    bestStudent = ""
     while studentID != "":
         if studentGrade > highestMark:
-            bestStudent = studentID
+            id = studentID
         studentID = f.readline().strip()
         studentGrade = f.readline().strip()
-    return bestStudent
-
+    return bestStudent.replace(bestStudent, id)
 
 print("the average is", getAverageGrade(filename), "%. The best student is", getBestStudent(filename))
