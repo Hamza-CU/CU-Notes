@@ -73,3 +73,26 @@ def analyze_pay(filename):
 
 print(search_employees(filename, keyword))
 print(analyze_pay(filename))
+
+_______________________________________________________________________
+def jaccard(list1, list2):
+    intersection = 0
+    jaccard = 0
+
+    for i in range(0, len(list1)):
+        for j in range(0, len(list2)):
+            if list1[i] == list2[j]:
+                intersection += 1
+    
+    union = len(list1) + len(list2) - intersection
+
+    jaccard = intersection / union
+
+    return jaccard
+
+list1 = [1, 2, 3, 4, 5] 
+list2 = [2, 4, 6, 8] 
+print(jaccard(list1,list2))
+
+_______________________________________________________________________
+
